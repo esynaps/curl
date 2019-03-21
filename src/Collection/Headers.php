@@ -131,9 +131,13 @@ class Headers implements \ArrayAccess
         }, array_keys($this->headers), $this->headers);
     }
 
+    /*
+     * Header field names MUST be converted to lowercase prior to their encoding in HTTP/2.
+     * @see https://tools.ietf.org/html/rfc7540
+     */
     public static function normalizeHeaderKey(string $key)
     {
-        return ucwords($key, '-');
+        return strtolower($key);
     }
 
     public static function normaliseHeaders(array $headers)
