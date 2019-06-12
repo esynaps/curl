@@ -54,7 +54,10 @@ class ProxyRequestModifier implements RequestModifierInterface
      */
     public function modify(CurlRequest $request): CurlRequest
     {
-        if (!in_array(parse_url($request->getUrl(), PHP_URL_HOST), $this->proxyIgnoredHosts)) {
+        $hostParts = explode('.', parse_url($request->getUrl(), PHP_URL_HOST));
+        $host = $hostParts[count($hostParts) - 2] . '.' . $hostParts[count($hostParts) - 1];
+
+        if (!in_array($host, $this->proxyIgnoredHosts)) {
             $request->getCurlOptions()[CURLOPT_HTTPPROXYTUNNEL] = true;
             $request->getCurlOptions()[CURLOPT_PROXY] = $this->proxy;
             if ($this->port) {
