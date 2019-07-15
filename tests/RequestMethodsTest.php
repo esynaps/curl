@@ -90,7 +90,7 @@ class RequestMethodsTest extends TestCase
         try {
             $data = ['foo1' => 'bar1', 'foo2' => ['foo22' => 'bar2']];
             $response = $this->curl->post('https://postman-echo.com/post', $data, null, [
-                Headers::CONTENT_TYPE => Headers::CONTENT_TYPE_FORM_JSON
+                Headers::CONTENT_TYPE => Headers::CONTENT_TYPE_JSON
             ]);
 
             $this->assertEquals(200, $response->statusCode());

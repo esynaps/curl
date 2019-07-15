@@ -24,7 +24,7 @@ class Headers implements \ArrayAccess
     const CONTENT_TYPE_TEXT_PLAIN = 'text/plain';
     const CONTENT_TYPE_MULTIPART_FORM_DATA = 'multipart/form-data';
     const CONTENT_TYPE_FORM_URL_ENCODED = 'application/x-www-form-urlencoded';
-    const CONTENT_TYPE_FORM_JSON = 'application/json';
+    const CONTENT_TYPE_JSON = 'application/json';
 
     const CONTENT_TYPE_PATTERN_JSON = '/^(?:application|text)\/(?:[a-z]+(?:[\.-][0-9a-z]+){0,}[\+\.]|x-)?json(?:-[a-z]+)?/i';
 

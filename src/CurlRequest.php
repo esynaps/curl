@@ -164,7 +164,7 @@ class CurlRequest
 
         $data = $this->getData();
         if(is_array($data || is_object($data))) {
-            if($this->getHeaders()->offsetGet(Headers::CONTENT_TYPE) === Headers::CONTENT_TYPE_FORM_JSON) {
+            if($this->getHeaders()->offsetGet(Headers::CONTENT_TYPE) === Headers::CONTENT_TYPE_JSON) {
                 $data = json_encode($data);
             }
         }
