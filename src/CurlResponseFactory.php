@@ -46,9 +46,10 @@ class CurlResponseFactory
         $raw = substr($content, $headerSize);
 
         $headers = array_reduce(explode("\n", $rawHeaders), function ($headers, $header) {
-            $parts = explode(':', $header);
-            if (2 == count($parts)) {
-                $headers[trim($parts[0])] = trim($parts[1]);
+            $pos = strpos($header, ':');
+
+            if($pos !== false) {
+                $headers[trim(substr($header, 0,$pos))] = trim(substr($header, $pos + 1));
             }
 
             return $headers;
